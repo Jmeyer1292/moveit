@@ -532,7 +532,7 @@ void PlanningScene::checkCollision(const collision_detection::CollisionRequest& 
   if (!res.collision || (req.contacts && res.contacts.size() < req.max_contacts))
   {
     // do self-collision checking with the unpadded version of the robot
-    getCollisionRobotUnpadded()->checkSelfCollision(req, res, kstate, getAllowedCollisionMatrix());
+    getCollisionRobot()->checkSelfCollision(req, res, kstate, getAllowedCollisionMatrix());
   }
 }
 
@@ -554,7 +554,7 @@ void PlanningScene::checkCollision(const collision_detection::CollisionRequest& 
 
   // do self-collision checking with the unpadded version of the robot
   if (!res.collision || (req.contacts && res.contacts.size() < req.max_contacts))
-    getCollisionRobotUnpadded()->checkSelfCollision(req, res, kstate, acm);
+    getCollisionRobot()->checkSelfCollision(req, res, kstate, acm);
 }
 
 void PlanningScene::checkCollisionUnpadded(const collision_detection::CollisionRequest& req,
