@@ -492,8 +492,8 @@ public:
   void checkSelfCollision(const collision_detection::CollisionRequest& req, collision_detection::CollisionResult& res,
                           const robot_state::RobotState& kstate) const
   {
-    // do self-collision checking with the unpadded version of the robot
-    getCollisionRobotUnpadded()->checkSelfCollision(req, res, kstate, getAllowedCollisionMatrix());
+    // do self-collision checking with the padded version of the robot
+    getCollisionRobot()->checkSelfCollision(req, res, kstate, getAllowedCollisionMatrix());
   }
 
   /** \brief Check whether a specified state (\e kstate) is in self collision, with respect to a given
@@ -511,8 +511,8 @@ public:
                           const robot_state::RobotState& kstate,
                           const collision_detection::AllowedCollisionMatrix& acm) const
   {
-    // do self-collision checking with the unpadded version of the robot
-    getCollisionRobotUnpadded()->checkSelfCollision(req, res, kstate, acm);
+    // do self-collision checking with the padded version of the robot
+    getCollisionRobot()->checkSelfCollision(req, res, kstate, acm);
   }
 
   /** \brief Get the names of the links that are involved in collisions for the current state */
